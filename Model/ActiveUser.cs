@@ -11,6 +11,7 @@ namespace Model
         private string login_name;
         private string username;
         private string password;
+        private string newpass;
 
         public string Login_name
         {
@@ -48,6 +49,19 @@ namespace Model
             set
             {
                 password = value;
+            }
+        }
+
+        public string Newpass
+        {
+            get
+            {
+                return newpass;
+            }
+
+            set
+            {
+                newpass = value;
             }
         }
     }

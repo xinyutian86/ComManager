@@ -29,7 +29,7 @@ namespace DAL
         public int ChangeAuPass(ActiveUser au)
         {
             con.Open();
-            string sql = String.Format("update ActiveUser set PassWord='{0}' where PassWord='{1}'", null, au.Login_name, au.Username, au.Password);
+            string sql = String.Format("update ActiveUser set PassWord='{0}' where LoginName='{1}'",au.Newpass,au.Login_name);
             MySqlCommand cmd = new MySqlCommand(sql, con);
             int iRet = cmd.ExecuteNonQuery();//这里返回的是受影响的行数，为int值。可以根据返回的值进行判断是否插入成功。
             con.Close();

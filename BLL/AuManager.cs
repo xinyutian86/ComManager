@@ -64,5 +64,36 @@ namespace BLL
             }
             return isSuccess;
         }
+
+        public bool ChangePass(ActiveUser au, out string msg)
+        {
+            msg = null;
+            bool isSuccess = false;
+            if (au.Login_name.Trim().Length != 0 || au.Password.Trim().Length != 0||au.Newpass.Trim().Length!=0)//判断从传递来的username是否为空
+            {
+
+                if (audb.IsEquals(au))//传给DALl操作判断数据库中是否有重复值
+                {
+                    string pass = audb.getpass(au);
+                    if (au.Password.Equals(pass))
+                    {
+                        isSuccess = true;
+                        audb.ChangeAuPass(au);
+                    }
+                    else
+                    {
+                        msg = "原密码错误";
+                    }
+                }
+                else
+                    msg = "没有此用户";
+            }
+            else
+            {
+                msg = "不能为空";
+
+            }
+            return isSuccess;
+        }
     }
 }
