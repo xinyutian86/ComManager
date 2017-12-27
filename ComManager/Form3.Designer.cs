@@ -32,14 +32,15 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.操作员管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.操作员管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.密码更改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -76,6 +77,33 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(59, 22);
             this.toolStripButton2.Text = "系统管理";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.操作员管理ToolStripMenuItem,
+            this.权限管理ToolStripMenuItem,
+            this.密码更改ToolStripMenuItem});
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(68, 22);
+            this.toolStripButton3.Text = "用户管理";
+            // 
+            // 操作员管理ToolStripMenuItem
+            // 
+            this.操作员管理ToolStripMenuItem.Name = "操作员管理ToolStripMenuItem";
+            this.操作员管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.操作员管理ToolStripMenuItem.Text = "操作员管理";
+            this.操作员管理ToolStripMenuItem.Click += new System.EventHandler(this.操作员管理ToolStripMenuItem_Click);
+            // 
+            // 权限管理ToolStripMenuItem
+            // 
+            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.权限管理ToolStripMenuItem.Text = "权限管理";
+            this.权限管理ToolStripMenuItem.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
             // 
             // toolStripButton4
             // 
@@ -121,31 +149,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(67, 17);
             this.toolStripStatusLabel1.Text = "登录用户：";
             // 
-            // toolStripButton3
+            // 密码更改ToolStripMenuItem
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.操作员管理ToolStripMenuItem,
-            this.权限管理ToolStripMenuItem});
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(68, 22);
-            this.toolStripButton3.Text = "用户管理";
-            // 
-            // 操作员管理ToolStripMenuItem
-            // 
-            this.操作员管理ToolStripMenuItem.Name = "操作员管理ToolStripMenuItem";
-            this.操作员管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.操作员管理ToolStripMenuItem.Text = "操作员管理";
-            this.操作员管理ToolStripMenuItem.Click += new System.EventHandler(this.操作员管理ToolStripMenuItem_Click);
-            // 
-            // 权限管理ToolStripMenuItem
-            // 
-            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.权限管理ToolStripMenuItem.Text = "权限管理";
-            this.权限管理ToolStripMenuItem.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
+            this.密码更改ToolStripMenuItem.Name = "密码更改ToolStripMenuItem";
+            this.密码更改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.密码更改ToolStripMenuItem.Text = "密码更改";
+            this.密码更改ToolStripMenuItem.Click += new System.EventHandler(this.密码更改ToolStripMenuItem_Click);
             // 
             // Form3
             // 
@@ -180,5 +189,6 @@
         private System.Windows.Forms.ToolStripMenuItem 权限管理ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem 密码更改ToolStripMenuItem;
     }
 }

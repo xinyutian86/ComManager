@@ -105,10 +105,11 @@ namespace ComManager
         
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(Convert.ToString(nid));
-            this.dataGridView1.ReadOnly = true;
-            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = true;
+            //MessageBox.Show(Convert.ToString(nid));
+            this.dataGridView1.ReadOnly = false;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;
             nid = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            id = nid;
             rowindex = e.RowIndex;
             colindex = e.ColumnIndex;
         }
@@ -120,7 +121,7 @@ namespace ComManager
                 //delete
                 con.Open();
                 string sql = string.Format("delete from ActiveUser where id={0}", id);
-                //MessageBox.Show(sql);
+                MessageBox.Show(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
                 con.Close();

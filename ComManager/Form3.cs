@@ -28,5 +28,11 @@ namespace ComManager
             Form6 fm6 = new Form6();
             fm6.Show();
         }
+
+        private void 密码更改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form7 fm7 = new Form7();
+            fm7.Show();
+        }
     }
 }

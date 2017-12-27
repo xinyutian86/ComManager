@@ -76,7 +76,7 @@ namespace ComManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form6 fm2 = new Form6();
+            Form10 fm2 = new Form10();
             fm2.Show();
             this.Hide();
         }

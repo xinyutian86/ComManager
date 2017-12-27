@@ -19,7 +19,8 @@ namespace DAL
         public int addAu(ActiveUser au)
         {
             con.Open();
-            string sql = String.Format("INSERT INTO ActiveUser VALUES('{0}','{1}','{2}','{3}')", null, au.Login_name,au.Username,au.Password);
+            string sql = String.Format("INSERT INTO `activeuser` (`LoginName`, `UserName`, `PassWord`) VALUES ('{0}', '{1}', '{2}')", au.Login_name,au.Username,au.Password);
+            File.WriteAllText(@"c:\xinyutian\SQL",sql);
             MySqlCommand cmd = new MySqlCommand(sql, con);
             int iRet = cmd.ExecuteNonQuery();//这里返回的是受影响的行数，为int值。可以根据返回的值进行判断是否插入成功。
             con.Close();
