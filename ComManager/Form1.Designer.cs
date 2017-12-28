@@ -72,6 +72,7 @@
             this.upass.PasswordChar = '*';
             this.upass.Size = new System.Drawing.Size(182, 21);
             this.upass.TabIndex = 3;
+            this.upass.Text = "123";
             // 
             // uname
             // 
@@ -79,6 +80,7 @@
             this.uname.Name = "uname";
             this.uname.Size = new System.Drawing.Size(182, 21);
             this.uname.TabIndex = 2;
+            this.uname.Text = "xin";
             // 
             // label2
             // 

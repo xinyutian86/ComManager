@@ -92,7 +92,7 @@ namespace ComManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form18 fm2 = new Form18();
+            Form20 fm2 = new Form20();
             fm2.Show();
             this.Hide();
         }

@@ -16,5 +16,11 @@ namespace ComManager
         {
             InitializeComponent();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Form20 fm20 = new Form20();
+            fm20.Show();
+        }
     }
 }

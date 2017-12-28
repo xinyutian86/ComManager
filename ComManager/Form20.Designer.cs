@@ -49,7 +49,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,14 +58,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.ssqx = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.zblx = new System.Windows.Forms.ComboBox();
+            this.ywlx = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.dy = new System.Windows.Forms.ComboBox();
+            this.khlb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -80,6 +79,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.qtsj = new System.Windows.Forms.DateTimePicker();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -201,6 +201,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.qtsj);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
@@ -208,7 +209,6 @@
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.textBox6);
             this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.comboBox8);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.label12);
@@ -218,14 +218,14 @@
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.comboBox7);
+            this.tabPage1.Controls.Add(this.ssqx);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.comboBox5);
-            this.tabPage1.Controls.Add(this.comboBox6);
+            this.tabPage1.Controls.Add(this.zblx);
+            this.tabPage1.Controls.Add(this.ywlx);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.comboBox3);
-            this.tabPage1.Controls.Add(this.comboBox4);
+            this.tabPage1.Controls.Add(this.dy);
+            this.tabPage1.Controls.Add(this.khlb);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.textBox1);
@@ -304,14 +304,6 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "备注";
             // 
-            // comboBox8
-            // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(95, 288);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(191, 20);
-            this.comboBox8.TabIndex = 25;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -385,13 +377,14 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "业务内容";
             // 
-            // comboBox7
+            // ssqx
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(637, 161);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(206, 20);
-            this.comboBox7.TabIndex = 15;
+            this.ssqx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ssqx.FormattingEnabled = true;
+            this.ssqx.Location = new System.Drawing.Point(637, 161);
+            this.ssqx.Name = "ssqx";
+            this.ssqx.Size = new System.Drawing.Size(206, 20);
+            this.ssqx.TabIndex = 15;
             // 
             // label8
             // 
@@ -402,21 +395,23 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "所属区县";
             // 
-            // comboBox5
+            // zblx
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(354, 161);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(206, 20);
-            this.comboBox5.TabIndex = 13;
+            this.zblx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.zblx.FormattingEnabled = true;
+            this.zblx.Location = new System.Drawing.Point(354, 161);
+            this.zblx.Name = "zblx";
+            this.zblx.Size = new System.Drawing.Size(206, 20);
+            this.zblx.TabIndex = 13;
             // 
-            // comboBox6
+            // ywlx
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(95, 161);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(191, 20);
-            this.comboBox6.TabIndex = 12;
+            this.ywlx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ywlx.FormattingEnabled = true;
+            this.ywlx.Location = new System.Drawing.Point(95, 161);
+            this.ywlx.Name = "ywlx";
+            this.ywlx.Size = new System.Drawing.Size(191, 20);
+            this.ywlx.TabIndex = 12;
             // 
             // label6
             // 
@@ -436,21 +431,23 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "业务类型";
             // 
-            // comboBox3
+            // dy
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(354, 120);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(206, 20);
-            this.comboBox3.TabIndex = 9;
+            this.dy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dy.FormattingEnabled = true;
+            this.dy.Location = new System.Drawing.Point(354, 120);
+            this.dy.Name = "dy";
+            this.dy.Size = new System.Drawing.Size(206, 20);
+            this.dy.TabIndex = 9;
             // 
-            // comboBox4
+            // khlb
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(95, 120);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(191, 20);
-            this.comboBox4.TabIndex = 8;
+            this.khlb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.khlb.FormattingEnabled = true;
+            this.khlb.Location = new System.Drawing.Point(95, 120);
+            this.khlb.Name = "khlb";
+            this.khlb.Size = new System.Drawing.Size(191, 20);
+            this.khlb.TabIndex = 8;
             // 
             // label4
             // 
@@ -488,15 +485,28 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(354, 45);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(206, 20);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.Text = "项目洽谈情况";
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018"});
             this.comboBox1.Location = new System.Drawing.Point(95, 45);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(191, 20);
@@ -570,6 +580,13 @@
             this.dataGridView2.Size = new System.Drawing.Size(806, 593);
             this.dataGridView2.TabIndex = 0;
             // 
+            // qtsj
+            // 
+            this.qtsj.Location = new System.Drawing.Point(95, 290);
+            this.qtsj.Name = "qtsj";
+            this.qtsj.Size = new System.Drawing.Size(191, 21);
+            this.qtsj.TabIndex = 33;
+            // 
             // Form20
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -614,7 +631,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label12;
@@ -624,14 +640,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox ssqx;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox zblx;
+        private System.Windows.Forms.ComboBox ywlx;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox dy;
+        private System.Windows.Forms.ComboBox khlb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
@@ -645,5 +661,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DateTimePicker qtsj;
     }
 }

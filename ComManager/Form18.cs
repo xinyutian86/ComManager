@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace ComManager
 {
@@ -17,6 +18,7 @@ namespace ComManager
         public Form18()
         {
             InitializeComponent();
+            init();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -53,7 +55,28 @@ namespace ComManager
                     string strRiQi = DateTime.Now.Year.ToString() + (DateTime.Now.Month.ToString().Length < 2 ? 0 + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + (DateTime.Now.Day.ToString().Length < 2 ? 0 + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + (DateTime.Now.Hour.ToString().Length < 2 ? 0 + DateTime.Now.Hour.ToString() : DateTime.Now.Hour.ToString()) + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
                     try
                     {
-                        CopyDir("C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Data\\sharp", textBox1.Text+"\\DataBaseBackUp"+strRiQi);
+
+                        //CopyDir("C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Data\\sharp", textBox1.Text+"\\DataBaseBackUp"+strRiQi);
+                        Process proc = null;
+                        try
+                        {
+                            string backup =String.Format("mysqldump -u{3} -p{1} {2} >{0}"+"\\"+ "DataBackUp"+strRiQi+".dbak",textBox1.Text,getLine2(7),getLine2(5),getLine2(6));
+                            //MessageBox.Show(backup);
+
+                            File.WriteAllText(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\my.bat", backup);
+                            string targetDir = string.Format(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\");//this is where mybatch.bat lies
+                            proc = new Process();
+                            proc.StartInfo.WorkingDirectory = targetDir;
+                            proc.StartInfo.FileName = "my.bat";
+                            proc.StartInfo.Arguments = string.Format("10");//this is argument
+                            proc.StartInfo.CreateNoWindow = false;
+                            proc.Start();
+                            proc.WaitForExit();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Exception Occurred :{0},{1}", ex.Message, ex.StackTrace.ToString());
+                        }
                         MessageBox.Show("备份成功!");
                     }
                     catch (Exception e1)
@@ -103,6 +126,120 @@ namespace ComManager
             Directory.Delete(fromDir, true);
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                
+            }
+            else
+            {
 
+            }
+        }
+
+        private void init()
+        {
+            if (File.Exists(@"c:\xinyutian\BackPath.dat"))
+            {
+                //存在 
+                checkBox1.Checked = true;
+                textBox1.Text = getLine(0);
+            }
+            else
+            {
+                //不存在 
+                
+            }
+
+        }
+        public static string getLine(int ii)
+        {
+            string line = null;
+            string file = "BackPath.dat";
+            if (File.Exists(@"c:\xinyutian\BackPath.dat"))
+            {
+                //存在 
+                string[] lines = File.ReadAllLines("c:\\xinyutian\\" + file);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (i == ii)
+                    {
+                        line = lines[i];
+                    }
+                }
+            }
+            else
+            {
+                //不存在 
+
+            }
+            return line;
+        }
+
+        public static string getLine2(int ii)
+        {
+            string line = null;
+            string file = "DataConfig.txt";
+            if (File.Exists(@"c:\xinyutian\DataConfig.txt"))
+            {
+                //存在 
+                string[] lines = File.ReadAllLines("c:\\xinyutian\\" + file);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (i == ii)
+                    {
+                        line = lines[i];
+                    }
+                }
+            }
+            else
+            {
+                //不存在 
+
+            }
+            return line;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                File.WriteAllText(@"C:\xinyutian\BackPath.dat", textBox1.Text);
+                //MessageBox.Show(textBox1.Text);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.InitialDirectory = "C://";
+            fileDialog.Filter = "数据库备份文件 (*.dbak)|*.dbak|All files (*.*)|*.*";
+            fileDialog.FilterIndex = 1;
+            fileDialog.RestoreDirectory = true;
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+                Process proc = null;
+                try
+                {
+                    string str = String.Format("mysql  -u{1}  -p{2} {3} < {0}", fileDialog.FileName, getLine2(6), getLine2(7), getLine2(5));
+                    File.WriteAllText(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\re.bat", str);
+                    string targetDir = string.Format(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\");//this is where mybatch.bat lies
+                    proc = new Process();
+                    proc.StartInfo.WorkingDirectory = targetDir;
+                    proc.StartInfo.FileName = "re.bat";
+                    proc.StartInfo.Arguments = string.Format("10");//this is argument
+                    proc.StartInfo.CreateNoWindow = false;
+                    proc.Start();
+                    proc.WaitForExit();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception Occurred :{0},{1}", ex.Message, ex.StackTrace.ToString());
+                }
+                MessageBox.Show("恢复成功!");
+            }
+        }
     }
 }
