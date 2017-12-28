@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveUser.cs" />
+    <Compile Include="BaiscInfo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RateInfo.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="StateInfo.cs" />
     <Compile Include="UserInfo.cs" />

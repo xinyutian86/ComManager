@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuDB.cs" />
+    <Compile Include="BasicDB.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DBConfig.cs" />
+    <Compile Include="Get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RateDB.cs" />
     <Compile Include="StateDB.cs" />
     <Compile Include="UserDB.cs" />
   </ItemGroup>

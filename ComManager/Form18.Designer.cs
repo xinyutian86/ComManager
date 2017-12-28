@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "数据备份";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(368, 79);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "...";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(192, 81);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 21);
+            this.textBox1.TabIndex = 3;
             // 
             // checkBox1
             // 
@@ -86,6 +103,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "数据备份";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
@@ -99,6 +117,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据恢复";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(87, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(197, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "强雷建议在备份恢复前进行数据备份";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(107, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(401, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "数据恢复--是将备份数据库替换当前操作的数据库，这个操作带有危险性，";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 35);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "恢复备份";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(447, 274);
@@ -111,49 +156,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(192, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 21);
-            this.textBox1.TabIndex = 3;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(368, 79);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "...";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 35);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "恢复备份";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(401, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "数据恢复--是将备份数据库替换当前操作的数据库，这个操作带有危险性，";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "强雷建议在备份恢复前进行数据备份";
             // 
             // Form18
             // 

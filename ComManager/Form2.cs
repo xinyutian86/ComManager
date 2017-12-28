@@ -36,8 +36,8 @@ namespace ComManager
                                 "Server="+host.Text+";User ID="+dname.Text+";Password="+uname.Text+";Database="+upass.Text+";CharSet=gbk;"};
             File.WriteAllLines(@"c:\xinyutian\DataConfig.txt", strs);
             MessageBox.Show("保存成功!");
-            Form3 fm3 = new Form3();
-            fm3.Show();
+            //Form3 fm3 = new Form3();
+            //fm3.Show();
             this.Hide();
         }
 

@@ -19,6 +19,7 @@ namespace ComManager
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine("Starting!!!");
         }
         ActiveUser au = new ActiveUser();
         AuManager am=new AuManager();
@@ -26,29 +27,44 @@ namespace ComManager
         string xyz;//加密后的用户名
         private void button2_Click(object sender, EventArgs e)
         {
-            au = new ActiveUser()
-            {
-                Login_name = uname.Text.Trim(),
-                Password = upass.Text.Trim()
-            };
-            string messageStr = null;
 
-            if (am.Login(au, out messageStr))
+            if (File.Exists(@"c:\xinyutian\DataConfig.txt"))
             {
-                MessageBox.Show("登录成功");
-                TextEncrypt(uname.Text.Trim(),psw);
-                string[] strs = {xyz};
-                File.WriteAllLines(@"c:\xinyutian\User.data", strs);
-                //MessageBox.Show("保存成功!");
-                Form2 fm2 = new Form2();
-                fm2.Show();
-                this.Hide();
+                //存在 
+                au = new ActiveUser()
+                {
+                    Login_name = uname.Text.Trim(),
+                    Password = upass.Text.Trim()
+                };
+                string messageStr = null;
+
+                if (am.Login(au, out messageStr))
+                {
+                    MessageBox.Show("登录成功");
+                    App.user = uname.Text;
+                    TextEncrypt(uname.Text.Trim(), psw);
+                    string[] strs = { xyz };
+                    File.WriteAllLines(@"c:\xinyutian\User.data", strs);
+                    //MessageBox.Show("保存成功!");
+                    Form3 fm3 = new Form3();
+                    fm3.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show(messageStr);
+                    uname.Focus();
+                }
             }
             else
             {
-                MessageBox.Show(messageStr);
-                uname.Focus();
+                //不存在 
+                MessageBox.Show("数据库未注册，请先注册数据库");
+                Form2 fm2 = new Form2();
+                fm2.Show();
             }
+
+                
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,7 +92,7 @@ namespace ComManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form10 fm2 = new Form10();
+            Form18 fm2 = new Form18();
             fm2.Show();
             this.Hide();
         }
