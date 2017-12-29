@@ -38,37 +38,32 @@ namespace ComManager
 
             if (myFolderBrowserDialog.ShowDialog() == DialogResult.OK)
             {//确认是否保存
-                string strLuJing = myFolderBrowserDialog.SelectedPath;//获取路径
-                textBox1.Text = strLuJing;//赋值给文本显示
+                string strPath = myFolderBrowserDialog.SelectedPath;//获取路径
+                textBox1.Text = strPath;//赋值给文本显示
             }
-
         }
      
         
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("是否备份数据", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("是否备份数据", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)//弹出对话框，等待用户选择
             {
-                if (textBox1.Text.ToString() != "")
+                if (textBox1.Text.ToString() != "")//空值检测
                 {
-                    string strRiQi = DateTime.Now.Year.ToString() + (DateTime.Now.Month.ToString().Length < 2 ? 0 + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + (DateTime.Now.Day.ToString().Length < 2 ? 0 + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + (DateTime.Now.Hour.ToString().Length < 2 ? 0 + DateTime.Now.Hour.ToString() : DateTime.Now.Hour.ToString()) + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                    string strRiQi = DateTime.Now.Year.ToString() + (DateTime.Now.Month.ToString().Length < 2 ? 0 + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + (DateTime.Now.Day.ToString().Length < 2 ? 0 + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + (DateTime.Now.Hour.ToString().Length < 2 ? 0 + DateTime.Now.Hour.ToString() : DateTime.Now.Hour.ToString()) + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();//生成日期时间
                     try
                     {
-
-                        //CopyDir("C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Data\\sharp", textBox1.Text+"\\DataBaseBackUp"+strRiQi);
-                        Process proc = null;
+                        Process proc = null;//创建Process
                         try
                         {
-                            string backup =String.Format("mysqldump -u{3} -p{1} {2} >{0}"+"\\"+ "DataBackUp"+strRiQi+".dbak",textBox1.Text,getLine2(7),getLine2(5),getLine2(6));
-                            //MessageBox.Show(backup);
-
-                            File.WriteAllText(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\my.bat", backup);
-                            string targetDir = string.Format(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\");//this is where mybatch.bat lies
+                            string backup =String.Format("mysqldump -u{3} -p{1} {2} >{0}"+"\\"+ "DataBackUp"+strRiQi+".dbak",textBox1.Text,getLine2(7),getLine2(5),getLine2(6));//初始化语句
+                            File.WriteAllText(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\my.bat", backup);//写入文件
+                            string targetDir = string.Format(@"C:\Program Files\MySQL\MySQL Server 5.7\bin\");
                             proc = new Process();
                             proc.StartInfo.WorkingDirectory = targetDir;
                             proc.StartInfo.FileName = "my.bat";
-                            proc.StartInfo.Arguments = string.Format("10");//this is argument
+                            proc.StartInfo.Arguments = string.Format("10");
                             proc.StartInfo.CreateNoWindow = false;
                             proc.Start();
                             proc.WaitForExit();
