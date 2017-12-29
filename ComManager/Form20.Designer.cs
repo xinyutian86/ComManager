@@ -42,6 +42,7 @@
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.qtsj = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.qtsj = new System.Windows.Forms.DateTimePicker();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -242,6 +242,13 @@
             this.tabPage1.Text = "基本信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // qtsj
+            // 
+            this.qtsj.Location = new System.Drawing.Point(95, 290);
+            this.qtsj.Name = "qtsj";
+            this.qtsj.Size = new System.Drawing.Size(191, 21);
+            this.qtsj.TabIndex = 33;
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(813, 503);
@@ -268,6 +275,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "添加";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -579,13 +587,6 @@
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(806, 593);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // qtsj
-            // 
-            this.qtsj.Location = new System.Drawing.Point(95, 290);
-            this.qtsj.Name = "qtsj";
-            this.qtsj.Size = new System.Drawing.Size(191, 21);
-            this.qtsj.TabIndex = 33;
             // 
             // Form20
             // 

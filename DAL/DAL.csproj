@@ -45,6 +45,7 @@
     <Compile Include="AuDB.cs" />
     <Compile Include="BasicDB.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ContactsDB.cs" />
     <Compile Include="DBConfig.cs" />
     <Compile Include="Get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

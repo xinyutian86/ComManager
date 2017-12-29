@@ -69,8 +69,9 @@ namespace ComManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
 
+            Form2 fm2 = new Form2();
+            fm2.Show();
             //userInfo = new UserInfo()
             //{
             //    Username = uname.Text.Trim(),
@@ -81,13 +82,14 @@ namespace ComManager
             //if (lm.Add(userInfo, out messageStr))
             //{
             //    MessageBox.Show("添加成功");
-                
+
             //}
             //else
             //{
             //    MessageBox.Show(messageStr);
             //    uname.Focus();
             //}
+
         }
 
         private void button3_Click(object sender, EventArgs e)

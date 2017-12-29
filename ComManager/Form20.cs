@@ -21,6 +21,7 @@ namespace ComManager
             init2();
             init3();
             init4();
+            init5();
         }
         static string link = String.Format("Server={0};User ID={1};Password={2};Database={3};CharSet=gbk;",
                 getLine(4), getLine(6), getLine(7), getLine(5));
@@ -135,5 +136,23 @@ namespace ComManager
             }
             con.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form26 fm26 = new Form26();
+            fm26.Show();
+        }
+        private void init5()
+        {
+            con.Open();//开启连接
+            string strcmd = "select * from Contacts";
+            MySqlCommand cmd = new MySqlCommand(strcmd, con);
+            MySqlDataAdapter ada = new MySqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            ada.Fill(ds);//查询结果填充数据集
+            dataGridView1.DataSource = ds.Tables[0];
+            con.Close();//关闭连接
+        }
     }
+
 }
