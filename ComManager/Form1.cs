@@ -20,6 +20,7 @@ namespace ComManager
         {
             InitializeComponent();
             Console.WriteLine("Starting!!!");
+
         }
         ActiveUser au = new ActiveUser();
         AuManager am=new AuManager();
@@ -66,7 +67,11 @@ namespace ComManager
 
                 
         }
-
+        private void ini()
+        {
+            Form20 fm20 = new Form20();
+            fm20.Show();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -118,5 +123,6 @@ namespace ComManager
             }
             return new string(data);
         }
+        
     }
 }

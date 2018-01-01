@@ -44,9 +44,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.xmlx = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -132,6 +132,7 @@
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(61, 22);
             this.toolStripButton6.Text = "导出Excel";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripSeparator1
             // 
@@ -174,9 +175,9 @@
             // 
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.xmlx);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.dy);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
@@ -203,13 +204,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "项目名称";
             // 
-            // comboBox3
+            // xmlx
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(408, 35);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(134, 20);
-            this.comboBox3.TabIndex = 5;
+            this.xmlx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.xmlx.FormattingEnabled = true;
+            this.xmlx.Location = new System.Drawing.Point(408, 35);
+            this.xmlx.Name = "xmlx";
+            this.xmlx.Size = new System.Drawing.Size(134, 20);
+            this.xmlx.TabIndex = 5;
             // 
             // label3
             // 
@@ -220,13 +222,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "项目类型";
             // 
-            // comboBox2
+            // dy
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(209, 36);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(134, 20);
-            this.comboBox2.TabIndex = 3;
+            this.dy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dy.FormattingEnabled = true;
+            this.dy.Location = new System.Drawing.Point(209, 36);
+            this.dy.Name = "dy";
+            this.dy.Size = new System.Drawing.Size(134, 20);
+            this.dy.TabIndex = 3;
             // 
             // label2
             // 
@@ -239,7 +242,19 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "全部年份",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018"});
             this.comboBox1.Location = new System.Drawing.Point(47, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
@@ -311,9 +326,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox xmlx;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox dy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;

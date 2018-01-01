@@ -16,5 +16,11 @@ namespace ComManager
         {
             InitializeComponent();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form27 fm27 = new Form27();
+            fm27.Show();
+        }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RateDB.cs" />
+    <Compile Include="ResDB.cs" />
     <Compile Include="StateDB.cs" />
     <Compile Include="UserDB.cs" />
   </ItemGroup>
