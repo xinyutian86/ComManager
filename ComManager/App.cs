@@ -10,5 +10,7 @@ namespace ComManager
     {
         public static string value;
         public static string user;
+        public static string name;
+        public static string ls;
     }
 }

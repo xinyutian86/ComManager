@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using Model;
+using BLL;
 
 namespace ComManager
 {
@@ -20,6 +22,9 @@ namespace ComManager
             init();
             tree();
         }
+        ActiveUser au = new ActiveUser();
+        AuManager am = new AuManager();
+        char[] Newmods = { '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' };
         static string link = String.Format("Server={0};User ID={1};Password={2};Database={3};CharSet=gbk;",
                 getLine(4), getLine(6), getLine(7), getLine(5));
         MySqlConnection con = new MySqlConnection(link);
@@ -28,6 +33,8 @@ namespace ComManager
         int i;
         private void usercb_TextChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("UU::::::::::"+usercb.Text);
+            App.name = usercb.Text;
             getmods(usercb.Text);
             get3();
         }
@@ -287,6 +294,87 @@ namespace ComManager
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             treeView1.Enabled = false;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            //Newmods = "0000000000".ToCharArray();
+
+            for (int i = 0; i < treeView1.Nodes.Count; i++)
+            {
+                GetNodeText2(treeView1.Nodes[i]);
+            }
+           // MessageBox.Show(textBox1.Text);
+            au = new ActiveUser()
+            {
+                Chmod = textBox1.Text,
+                Username = App.name
+            };
+            string messageStr = null;
+
+            if (am.Chmod(au, out messageStr))
+            {
+                MessageBox.Show("修改权限成功");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(messageStr);
+            }
+        }
+        void GetNodeText2(TreeNode node)
+        {
+            if (node.Nodes.Count != 0)
+            {
+
+
+                for (int i = 0; i < node.Nodes.Count; i++)
+                {
+                    GetNodeText2(node.Nodes[i]);
+                }
+
+            }
+            //node.Checked = true;
+            if (node.Checked)
+            {
+                //MessageBox.Show(node.Text);
+                //MessageBox.Show(getNum(node.Text));
+                textBox1.Text = change(Newmods, getNum(node.Text), '1');
+            }
+        }
+        public string getNum(string mods)
+        {
+            string num = null;
+            string sql = String.Format("select number from chmod where mods='{0}' and level=2", mods);
+            con.Open();//开启连接
+            MySqlCommand cmd = new MySqlCommand(sql,con);
+            MySqlDataReader msrd;
+            msrd = cmd.ExecuteReader();
+            while (msrd.Read())
+            {
+                for (int ct = 0; ct < msrd.FieldCount; ct++)
+                {
+                    num = Convert.ToString(msrd[ct]);
+                }
+            }
+            con.Close();//关闭连接
+            return num;
+        }
+        public string change(char[] prechar, string where, char what)
+        {
+            string after = null;
+            int location = Convert.ToInt32(where)-1;
+            Console.WriteLine("PRE::::::::::::::::::::::::"+prechar);
+            Console.WriteLine("WHERE::::::::::::::::::::::"+location);
+            for (int i = 0; i < prechar.Length; i++)
+            {
+                if (i == location)
+                {
+                    prechar[i] = what;
+                }
+                after += prechar[i];
+            }
+            return after;
         }
     }
 }

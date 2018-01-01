@@ -12,6 +12,7 @@ namespace Model
         private string username;
         private string password;
         private string newpass;
+        private string chmod;
 
         public string Login_name
         {
@@ -62,6 +63,19 @@ namespace Model
             set
             {
                 newpass = value;
+            }
+        }
+
+        public string Chmod
+        {
+            get
+            {
+                return chmod;
+            }
+
+            set
+            {
+                chmod = value;
             }
         }
     }

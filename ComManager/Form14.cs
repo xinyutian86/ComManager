@@ -117,5 +117,90 @@ namespace ComManager
             }
             
         }
+        private int id;
+        private int nid;
+        private int rowindex;
+        private int colindex;
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView1.ReadOnly = false;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;
+            id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            rowindex = e.RowIndex;
+            colindex = e.ColumnIndex;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string Type = (string)listBox1.SelectedItem;
+            string T = null;
+            if (Type != null)
+            {
+                if (Type.Equals("业务类型"))
+                {
+                    T= "BusinessType";
+                }
+                else
+                {
+                    T = "CapitalType";
+                }
+            }
+            else
+            {
+                MessageBox.Show("你还没有选择~");
+            }
+            string sql = string.Format("update {3} set {2}='{1}' where id={0} ", id, dataGridView1.Rows[rowindex].Cells[colindex].Value, dataGridView1.Columns[colindex].HeaderText,T);
+            Console.WriteLine("SQL:::::::::::::"+sql);
+            //MessageBox.Show(sql);
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("修改成功!");
+            init0();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView1.ReadOnly = false;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;
+            nid = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            id = nid;
+            rowindex = e.RowIndex;
+            colindex = e.ColumnIndex;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定删除此记录？", "重要提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                //delete
+                con.Open();
+                string Type = (string)listBox1.SelectedItem;
+                string T = null;
+                if (Type != null)
+                {
+                    if (Type.Equals("业务类型"))
+                    {
+                        T = "BusinessType";
+                    }
+                    else
+                    {
+                        T = "CapitalType";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("你还没有选择~");
+                }
+                string sql = string.Format("delete from {1} where id={0}", id,T);
+                MessageBox.Show(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("删除成功!");
+                init0();
+            }
+        }
     }
 }

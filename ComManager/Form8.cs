@@ -221,5 +221,46 @@ namespace ComManager
                 MessageBox.Show(messageStr);
             }
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode == null)
+            {
+                MessageBox.Show("请选择要修改的节点！");
+                return;
+            }
+            //treeView2.SelectedNode.Text;
+            textBox1.Visible = true;
+            textBox1.Text = treeView1.SelectedNode.Text;
+            button1.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            changeName(treeView1.SelectedNode.Text, textBox1.Text);
+        }
+        private void changeName(string OldName, string NewName)
+        {
+            con.Open();
+            string sql = String.Format("update state set name='{0}' where name='{1}'", NewName, OldName);
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            int iRet = cmd.ExecuteNonQuery();//这里返回的是受影响的行数，为int值。可以根据返回的值进行判断是否插入成功。
+            if (iRet > 0)
+            {
+
+                MessageBox.Show("修改成功");
+                textBox1.Visible = false;
+                button1.Visible = false;
+
+            }
+            else
+            {
+
+                MessageBox.Show("修改失败");
+
+            }
+            con.Close();
+            init();
+        }
     }
 }

@@ -94,7 +94,7 @@ namespace ComManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form20 fm2 = new Form20();
+            Form19 fm2 = new Form19();
             fm2.Show();
             this.Hide();
         }

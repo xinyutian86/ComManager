@@ -35,8 +35,7 @@ namespace ComManager
             {
                 Id = id.Text,
                 State = state.Text,
-                //Level = Convert.ToInt16(sendid)
-                Level=1
+                Level=lv.Text
 
             };
             string messageStr = null;
@@ -78,25 +77,33 @@ namespace ComManager
 
         private void id_TextChanged(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             
                 if (id.Text.Trim().Length != 0)
                 {
-                if (id.Text.Trim().Length<6)
+                if (id.Text.Trim().Length<7)
                 {
-                    if (id.Text.Trim().Length < 5)
+                    if (id.Text.Trim().Length < 4&& id.Text.Trim().Length >=2)
                     {
                         si = new StateInfo()
                         {
-                            Id = id.Text
-                        };
+                            Id = id.Text.Substring(0,2)
+                           }; 
                     }
-                    else
+                    else if(id.Text.Trim().Length>=4)
                     {
                         si = new StateInfo()
                         {
                             Id = id.Text.Substring(0,4)
                         };
-                        
+
+                    }
+                    else
+                    {
+                        //si = new StateInfo()
+                        //{
+                        //    Id = id.Text
+                        //};
                     }
                     
                 }
@@ -111,13 +118,27 @@ namespace ComManager
                 {
                     si = new StateInfo()
                     {
-                        Id = "1"
+                        Id = "888888"
                     };
                 }
-            
-            
             lv.Text = sm.Get(si);
+            
+            comboBox1.Items.Add("无");
+            comboBox1.Items.Add(sm.Get(si));
+            if (!lv.Text.Equals("没有查询到"))
+            {
+                App.ls = lv.Text;
+            }
+            else
+            {
+                lv.Text = App.ls;
+            }
+            if (checkBox1.Checked)
+            {
+                lv.Text = "没有查询到";
+            }
             //MessageBox.Show(Convert.ToString(si.Id));
         }
+
     }
 }

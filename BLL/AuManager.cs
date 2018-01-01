@@ -35,6 +35,23 @@ namespace BLL
             return isSuccess;//返回界面层是否添加成功
         }
 
+        public bool Chmod(ActiveUser au,out string msg)
+        {
+            msg = null;
+            bool isSuccess = false;
+            if (au.Username.Trim().Length != 0 || au.Chmod.Trim().Length != 0)//判断从传递来的username是否为空
+            {
+                    audb.ChangeMod(au);
+                    isSuccess = true;
+            }
+            else
+            {
+                msg = "不能为空";
+
+            }
+            return isSuccess;//返回界面层是否添加成功
+        }
+
         public bool Login(ActiveUser au, out string msg)
         {
             msg = null;

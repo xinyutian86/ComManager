@@ -27,6 +27,16 @@ namespace DAL
             return iRet;
         }
 
+        public int ChangeMod(ActiveUser au)
+        {
+            con.Open();
+            string sql = String.Format("update ActiveUser set chmod='{0}' where UserName='{1}'", au.Chmod,au.Username);
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            int iRet = cmd.ExecuteNonQuery();//这里返回的是受影响的行数，为int值。可以根据返回的值进行判断是否插入成功。
+            con.Close();
+            return iRet;
+        }
+
         public int ChangeAuPass(ActiveUser au)
         {
             con.Open();

@@ -67,5 +67,57 @@ namespace ComManager
         {
             init0();
         }
+
+        private int id;
+        private int nid;
+        private int rowindex;
+        private int colindex;
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView1.ReadOnly = false;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;
+            id = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            rowindex = e.RowIndex;
+            colindex = e.ColumnIndex;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string sql = string.Format("update Rate set {2}='{1}' where id={0} ", id, dataGridView1.Rows[rowindex].Cells[colindex].Value, dataGridView1.Columns[colindex].HeaderText);
+            //MessageBox.Show(sql);
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("修改成功!");
+            init0();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dataGridView1.ReadOnly = false;
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = false;
+            nid = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            id = nid;
+            rowindex = e.RowIndex;
+            colindex = e.ColumnIndex;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定删除此记录？", "重要提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                //delete
+                con.Open();
+                string sql = string.Format("delete from Rate where id={0}", id);
+                MessageBox.Show(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("删除成功!");
+                init0();
+            }
+        }
     }
 }
